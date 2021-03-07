@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FavouriteBand
+namespace ASPNETPractice
 {
     public class Startup
     {
@@ -23,6 +23,7 @@ namespace FavouriteBand
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseStaticFiles();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -34,6 +35,7 @@ namespace FavouriteBand
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
