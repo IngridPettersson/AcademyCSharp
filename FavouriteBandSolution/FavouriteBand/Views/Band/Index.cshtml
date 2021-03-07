@@ -1,0 +1,21 @@
+﻿@model FavouriteBand.Models.Band[]
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Favourite bands</title>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    </head>
+    <body>
+        <h1>The best bands in the world</h1>
+        <div>
+            <ul>
+                @foreach (var item in Model)
+                {
+                <li><a href="/Details/@item.Id">@item.Name</a></li>
+
+                }
+            </ul>
+        </div>
+        </body>
+    </html>

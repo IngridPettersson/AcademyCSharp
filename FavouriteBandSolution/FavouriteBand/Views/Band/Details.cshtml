@@ -1,0 +1,17 @@
+﻿@model FavouriteBand.Models.Band
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Favourite band - details</title>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    </head>
+    <body>
+        <h1>Details about @Model.Name</h1>
+        <div>
+            <p>@Model.Description</p>
+            <p><img src="@Model.ImageUrl" alt="" /></p>
+            
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,20 @@
+﻿@model MVCCOdeAlongPontus.Models.Product[]
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Products</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+</head>
+<body>
+    <h1>Products (@Model.Length)</h1>
+    <div>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
