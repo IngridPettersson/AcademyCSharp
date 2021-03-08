@@ -1,0 +1,20 @@
+﻿@model ASPNETPractice.Models.Toy[]
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Toys toys toys - Home page</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+</head>
+<body>
+    <h1>Mademoiselle's choices of today</h1>
+    <div>
+        <ol>
+            @foreach (var item in Model)
+            {
+                <li><a href="Details/@item.Id">Toy: @item.Name, Popularity: @item.Popularity</a></li>
+            }
+        </ol>
+    </div>
+</body>
+</html>
