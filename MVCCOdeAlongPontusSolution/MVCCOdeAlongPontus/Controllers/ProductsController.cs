@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MVCCOdeAlongPontus.Models;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,27 @@ namespace MVCCOdeAlongPontus.Controllers
         }
 
         [Route("products/create")]
+        [HttpGet]
         public IActionResult Create()
         {
-            return Content("Hello from Create :) Här visar vi ett formulär för att skapa en ny produkt.");
+            return View();
+        }
+
+        [Route("products/create")]
+        [HttpPost]
+        //public IActionResult Create(IFormCollection form)
+        public IActionResult Create(Product product)
+
+        {
+            if (!ModelState.IsValid)
+                return View(product);
+            else
+                return RedirectToAction(nameof(Index));
+            //return View();
         }
 
         [Route("products/{id}")]
-        
+
         // inparametern måste ha samma namn som namnet i måsvingarna i Route
         public IActionResult Details(int id)
         {

@@ -12,6 +12,7 @@ namespace FavouriteBand.Controllers
         BandService service = new BandService();
 
         [Route("")]
+        [Route("bands")]
         public IActionResult Index()
         {
             var bands = service.GetAllBands();

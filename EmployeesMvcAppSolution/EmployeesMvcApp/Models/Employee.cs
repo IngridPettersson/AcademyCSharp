@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVCCOdeAlongPontus.Models
+namespace EmployeesMvcApp.Models
 {
-    public record Product
+    public record Employee
     {
         public int Id { get; set; }
-
-        [Display(Name = "Product name")]
-        [Required(ErrorMessage = "Enter a product name")]
+        [Required(ErrorMessage = "Add valid name")]
         public string Name { get; set; }
-        public decimal Price { get; set; }
-
+        [Required(ErrorMessage ="Add valid email"), EmailAddress()]
+        public string Email { get; set; }
     }
 }

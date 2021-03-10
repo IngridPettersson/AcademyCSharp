@@ -1,0 +1,34 @@
+﻿@model DogApp.Models.Dog[]
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dogs - Index</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+</head>
+<body>
+    <div>
+        <h2>My dogs</h2>
+            @if (Model.Length == 0)
+            {
+                <p>You have no dogs yet...</p>
+            }
+             else
+            {
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    @item.Name <br /> <a href="dog/edit/@item.Id">Update</a><br /><a href="dog/delete/@item.Id">Delete</a>
+                </li>
+            }
+        </ul>
+
+            }
+        <p>
+        <a href="dog/create">Create new dog</a>
+        </p>
+
+    </div>
+</body>
+</html>

@@ -19,7 +19,7 @@ namespace FavouriteBand.Models
         {
             return bands
                 .Where(o => o.Id == id)
-                .First();
+                .Single();
         }
 
         public Band[] GetAllBands()
