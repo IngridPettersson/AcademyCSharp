@@ -21,5 +21,12 @@ namespace EmployeesMvcApp.Models
             return employees
                 .ToArray();
         }
+
+        public Employee GetEmployeeById(int id)
+        {
+            return employees
+                .Where(o => o.Id == id)
+                .Single();
+        }
     }
 }
