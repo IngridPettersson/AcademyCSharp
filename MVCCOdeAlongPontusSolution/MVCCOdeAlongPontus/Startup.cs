@@ -33,6 +33,7 @@ namespace MVCCOdeAlongPontus
             }
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,6 +1,8 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿
+@model Product[]
 
-@model MVCCOdeAlongPontus.Models.Product[]
+@{ViewBag.Title = "Products";}
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Products</title>
@@ -19,5 +21,6 @@
         </ul>
     </div>
     <a asp-controller="Products" asp-action="Create">Create new product</a>
+    <partial name="_TimeBox" model="DateTime.Now" />
 </body>
 </html>
