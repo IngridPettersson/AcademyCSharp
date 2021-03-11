@@ -9,10 +9,15 @@
     @RenderSection("css", false)
 
 </head>
-<body>
-    <header><h1>Employees</h1></header>
-    <a asp-controller="Employee" asp-action="Index">Start page</a>
-    <a asp-controller="Employee" asp-action="Create">Create employee</a>
+<body style="text-align:center">
+    <header>
+        <partial name="_TimeBox" model="DateTime.Now" />
+    <nav>
+        <a asp-controller="Employee" asp-action="Index">Home</a><br />
+        <a asp-controller="Employee" asp-action="Create">Create employee</a>
+    </nav>
+        <h1>@ViewBag.Heading</h1>
+    </header>
 
     <div>
         @RenderBody()
@@ -20,6 +25,9 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
 
     @RenderSection("scripts", false)
-    <footer>&copy; Grupp 3</footer>
+    <footer style="text-align: center">
+        <partial name="_TimeBox" model="DateTime.Now" />
+        &copy; Grupp 3
+    </footer>
 </body>
 </html>

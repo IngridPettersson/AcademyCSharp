@@ -1,8 +1,8 @@
 ﻿@model Employee
+@{ 
+    ViewBag.Title = "Details";
+    ViewBag.Heading = "Details about Employee";
+}
 
-    <h1>Employee @Model.Id</h1>
-    <div>
         <p>Name: @Model.Name</p>
         <p>E-mail: @Model.Email</p>
-    </div>
-    <a asp-controller="Employee" asp-action="Index">Back to start page</a>

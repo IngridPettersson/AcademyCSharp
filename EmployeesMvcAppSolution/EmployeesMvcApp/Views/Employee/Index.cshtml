@@ -1,11 +1,18 @@
 ﻿@model Employee[]
-    <div>
-        <ul>
-            @foreach (var item in Model)
-            {
-                <li><a asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></li>
-            }
-        </ul>
-    </div>
+@{ 
+    ViewBag.Title = "Employees - Home";
+    ViewBag.Heading = "Employees";
+}
+<div>
+    @if (Model.Length > 0)
+    {
+        <p>List of employees</p>
 
-    <a asp-controller="Employee" asp-action="Create">Create new employee</a>
+    }
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></li>
+        }
+    </ul>
+</div>
