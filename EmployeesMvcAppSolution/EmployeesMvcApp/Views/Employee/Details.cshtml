@@ -1,18 +1,8 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model EmployeesMvcApp.Models.Employee
+﻿@model Employee
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Employees - Details</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-</head>
-<body>
     <h1>Employee @Model.Id</h1>
     <div>
         <p>Name: @Model.Name</p>
         <p>E-mail: @Model.Email</p>
     </div>
     <a asp-controller="Employee" asp-action="Index">Back to start page</a>
-</body>
-</html>

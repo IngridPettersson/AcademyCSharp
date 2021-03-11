@@ -1,18 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model EmployeesMvcApp.Models.Employee[]
-
-@{ 
-    Layout = "_Layout"
-}
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Employees - home</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-</head>
-<body>
-    <h1>Employees</h1>
+﻿@model Employee[]
     <div>
         <ul>
             @foreach (var item in Model)
@@ -21,7 +7,5 @@
             }
         </ul>
     </div>
-    
+
     <a asp-controller="Employee" asp-action="Create">Create new employee</a>
-</body>
-</html>

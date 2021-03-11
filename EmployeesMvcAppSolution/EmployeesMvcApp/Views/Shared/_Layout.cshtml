@@ -1,12 +1,25 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+
+<html>
 <head>
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     @RenderSection("css", false)
+
 </head>
 <body>
+    <header><h1>Employees</h1></header>
+    <a asp-controller="Employee" asp-action="Index">Start page</a>
+    <a asp-controller="Employee" asp-action="Create">Create employee</a>
+
     <div>
         @RenderBody()
     </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
     @RenderSection("scripts", false)
+    <footer>&copy; Grupp 3</footer>
 </body>
 </html>

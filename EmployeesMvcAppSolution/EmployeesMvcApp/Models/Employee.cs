@@ -12,7 +12,8 @@ namespace EmployeesMvcApp.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Add valid name")]
         public string Name { get; set; }
-        [Required(ErrorMessage ="Add valid email"), EmailAddress()]
+        [Required(ErrorMessage ="Add valid email")]
+        [EmailAddress(ErrorMessage ="Email address is not valid.")]
         public string Email { get; set; }
     }
 }
