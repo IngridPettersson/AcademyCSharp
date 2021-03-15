@@ -1,3 +1,4 @@
+using EmployeesMvcApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +18,13 @@ namespace EmployeesMvcApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddTransient<EmployeeService>(); ////Skapas en ny instans varje gång
+            services.AddSingleton<EmployeeService>(); ////Blir som statiskt, att alla delar på den skapade instansen.
+            //services.AddScoped<EmployeeService>();
+            services.AddTransient<IContentService, DevContentService>();
+            //services.AddTransient<IContentService, ReleaseContentService>();
+
+
 
         }
 

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MVCCOdeAlongPontus.Models
 {
-    public record Product
-    {
-        public int Id { get; set; }
+    //public record Product
+    //{
+    //    public int Id { get; set; }
 
-        [Display(Name = "Product name")]
-        [Required(ErrorMessage = "Enter a product name")]
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+    //    [Display(Name = "Product name")]
+    //    [Required(ErrorMessage = "Enter a product name")]
+    //    public string Name { get; set; }
+    //    public decimal Price { get; set; }
 
-    }
+    //}
 }

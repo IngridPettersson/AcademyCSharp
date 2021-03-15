@@ -10,7 +10,12 @@ namespace MVCCOdeAlongPontus.Controllers
 {
     public class ProductsController : Controller
     {
-        ProductService service = new ProductService();
+        ProductService service;
+
+        public ProductsController(ProductService service)
+        {
+            this.service = service;
+        }
 
         // En action svarar på ett HTTP-anrop
         [Route("")]
@@ -35,7 +40,10 @@ namespace MVCCOdeAlongPontus.Controllers
 
         {
             if (!ModelState.IsValid)
+            {
+                service.Add(product);
                 return View(product);
+            }
             else
                 return RedirectToAction(nameof(Index));
             //return View();
