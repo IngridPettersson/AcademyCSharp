@@ -18,11 +18,26 @@ namespace ASPNETPractice.Controllers
             return View(toys);
         }
 
-        [Route("Details/{Id}")]
+        [Route("/Toy/Details/{Id}")]
         public IActionResult Details(int id)
         {
             var toy = service.GetDetails(id);
             return View(toy);        
+        }
+
+        [Route("/Toy/Create")]
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Route("/Toy/Create")]
+        [HttpPost]
+        public IActionResult Create(Toy toy)
+        {
+            service.AddToy(toy);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    @RenderSection("css", false)
+</head>
+<body>
+    <nav>
+        <a asp-controller="Toy" asp-action="Index">Home</a>&emsp;
+        <a asp-controller="Toy" asp-action="Create">Add toy</a>
+    </nav>
+    <h1 style="text-align:center">@ViewBag.Heading</h1>
+    <div style="text-align:center">
+        @RenderBody()
+    </div>
+    @section scripts
+    {
+
+    }
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@model ASPNETPractice.Models.Toy
+
+@{ 
+    ViewBag.Title = "Add toy";
+    ViewBag.Heading = "Add toy";
+
+} 
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <label asp-for="Popularity"></label>
+    <input asp-for="Popularity" />
+    <span asp-validation-for="Popularity"></span><br />
+
+    <input type="submit" name="name" value="Add toy" style="background-color: bisque" />
+
+</form>

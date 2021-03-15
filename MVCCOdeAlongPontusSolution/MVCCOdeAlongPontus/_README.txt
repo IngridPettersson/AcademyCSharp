@@ -1,2 +1,2 @@
 ﻿
-Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Product;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Entities" -Context "MyContext" -Force
+Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MVCCodeAlongPontus;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Entities" -Context "MyContext" -Force
