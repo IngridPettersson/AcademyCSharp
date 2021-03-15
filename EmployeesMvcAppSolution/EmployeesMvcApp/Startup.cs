@@ -17,6 +17,7 @@ namespace EmployeesMvcApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EmployeesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddControllersWithViews();
             //services.AddTransient<EmployeeService>(); ////Skapas en ny instans varje gång
             services.AddSingleton<EmployeeService>(); ////Blir som statiskt, att alla delar på den skapade instansen.
