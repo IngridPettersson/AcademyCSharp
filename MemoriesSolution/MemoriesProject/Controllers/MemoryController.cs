@@ -20,19 +20,24 @@ namespace MemoriesProject.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            //var memories = service.GetAllMemories();
-            //List<MemoryIndexVM> memoryList = new List<MemoryIndexVM>();
-            //var memory = new MemoryIndexVM
-            //{
-            //    MemoryTitle = "Vänder sig",
-            //    WhenInWords = "3 månader gammal",
-            //    Description = "Vänder sig från mage till rygg för första gången. Jag hör henne skrika på golvet " +
-            //    "och hittar henne strandad på rygg, och hon ser ganska förvånad ut. Mest missnöjd dock eftersom " +
-            //    "hon inte kan vända sig tillbaka till mage än."
-            //};
-            //memoryList.Add(memory);
-            return View();
-            //return View(memories);
+            var memories = service.GetAllMemories();
+            return View(memories);
         }
+
+        [Route("/Memory/Create")]
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+
+        }
+
+        //[Route("/Memory/Create")]
+        //[HttpPost]
+        //public IActionResult Create()
+        //{
+        //    service.AddMemory();
+
+        //}
     }
 }

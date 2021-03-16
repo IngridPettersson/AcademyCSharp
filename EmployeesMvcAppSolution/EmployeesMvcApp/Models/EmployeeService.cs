@@ -44,23 +44,7 @@ namespace EmployeesMvcApp.Models
                 CompanyName = x.Company != null ? x.Company.Name : "N/A"
             })
                 .ToArray();
-
-            //List<EmployeeIndexVM> indexVMList = new List<EmployeeIndexVM>();
-            //foreach (var item in context.Employees)
-            //{
-            //    var vm = new EmployeeIndexVM
-            //    {
-            //        Name = item.Name,
-            //        Email = item.Email,
-            //        ShowAsHighlighted = item.Email.StartsWith("admin")
-            //    };
-            //    indexVMList.Add(vm);
-            //}
-            //return indexVMList
-            //    .OrderBy(o => o.Name)
-            //    .ToArray();
         }
-
 
         public Employee GetEmployeeById(int id)
         {

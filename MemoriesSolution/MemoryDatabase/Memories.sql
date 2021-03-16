@@ -6,5 +6,6 @@
 	[MemoryTitle] nvarchar(70) NOT NULL,
 	[When] DateTime NULL,
 	[WhenInWords] nvarchar(70) NULL,
-	[Description] nvarchar(4000) NULL
+	[Description] nvarchar(4000) NULL,
+	[ImageUrl] nvarchar(70) NULL
 )

@@ -14,5 +14,6 @@ namespace MemoriesProject.Models.Entities
         public DateTime? When { get; set; }
         public string WhenInWords { get; set; }
         public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
