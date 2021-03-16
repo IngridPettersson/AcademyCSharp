@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoriesProject", "MemoriesProject\MemoriesProject.csproj", "{66DF27D1-E622-43F4-8EDC-11857E4F4B8E}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MemoriesDatabase", "MemoryDatabase\MemoriesDatabase.sqlproj", "{9A26280D-7598-465B-99AB-4A1FCA0B713E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{66DF27D1-E622-43F4-8EDC-11857E4F4B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DF27D1-E622-43F4-8EDC-11857E4F4B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DF27D1-E622-43F4-8EDC-11857E4F4B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A26280D-7598-465B-99AB-4A1FCA0B713E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

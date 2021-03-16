@@ -9,6 +9,8 @@
         alt. bara en statisk sträng MemoryHolder på klassen MemoryIndexVM*@
     <table>
         <tr>
+            <th>Vems minne</th>
+            <th>Vilka handlar minnet om</th>
             <th>Minnets titel</th>
             <th>Datum</th>
             <th>När i ord</th>
@@ -18,6 +20,8 @@
         @foreach (var memory in Model)
         {
             <tr>
+                <td>@memory.MemoryHolder</td>
+                <td>@memory.PeopleInMemory</td>
                 <td>@memory.MemoryTitle</td>
                 <td>@memory.When</td>
                 <td>@memory.WhenInWords</td>

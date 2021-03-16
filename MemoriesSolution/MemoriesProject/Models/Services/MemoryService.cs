@@ -8,9 +8,9 @@ namespace MemoriesProject.Models.Services
 {
     public class MemoryService
     {
-        internal MemoryIndexVM[] GetAllMemories()
-        {
+        //internal MemoryIndexVM[] GetAllMemories()
+        //{
             
-        }
+        //}
     }
 }

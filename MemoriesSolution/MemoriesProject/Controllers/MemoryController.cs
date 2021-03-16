@@ -20,7 +20,7 @@ namespace MemoriesProject.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var memories = service.GetAllMemories();
+            //var memories = service.GetAllMemories();
             //List<MemoryIndexVM> memoryList = new List<MemoryIndexVM>();
             //var memory = new MemoryIndexVM
             //{
@@ -31,8 +31,8 @@ namespace MemoriesProject.Controllers
             //    "hon inte kan vända sig tillbaka till mage än."
             //};
             //memoryList.Add(memory);
-            
-            return View(memories);
+            return View();
+            //return View(memories);
         }
     }
 }
