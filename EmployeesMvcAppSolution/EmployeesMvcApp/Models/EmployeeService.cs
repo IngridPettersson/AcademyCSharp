@@ -1,4 +1,5 @@
-﻿using EmployeesMvcApp.Models.ViewModels;
+﻿using EmployeesMvcApp.Models.Entities;
+using EmployeesMvcApp.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,43 +9,76 @@ namespace EmployeesMvcApp.Models
 {
     public class EmployeeService
     {
-        List<Employee> employees = new List<Employee>();
-        static int employeeCounter = 1;
+        //List<Employee> employees = new List<Employee>();
+        //static int employeeCounter = 1;
         IContentService contentService;
-        public EmployeeService(IContentService contentService)
+        private readonly MyContext context;
+
+        public EmployeeService(IContentService contentService, MyContext context)
         {
             this.contentService = contentService;
+            this.context = context;
         }
 
-        public void AddEmployee(Employee employee)
+        public void AddEmployee(EmployeeCreateVM viewModel)
         {
-            employee.Id = employeeCounter++;
-            employees.Add(employee);
+            //employee.Id = employeeCounter++;
+            context.Employees.Add(new Employee
+            {
+                Name = viewModel.Name,
+                Email = viewModel.Email,
+                //CompanyId = viewModel.CompanyId
+            });
+
+            context.SaveChanges();
         }
 
-        public Employee[] GetAllEmployees()
+        public EmployeeIndexVM[] GetAllEmployees()
         {
-            return employees
+            return context.Employees.Select(x => new EmployeeIndexVM
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Email = x.Email,
+                ShowAsHighlighted = x.Email.ToLower().StartsWith("admin"),
+                CompanyName = x.Company != null ? x.Company.Name : "N/A"
+            })
                 .ToArray();
+
+            //List<EmployeeIndexVM> indexVMList = new List<EmployeeIndexVM>();
+            //foreach (var item in context.Employees)
+            //{
+            //    var vm = new EmployeeIndexVM
+            //    {
+            //        Name = item.Name,
+            //        Email = item.Email,
+            //        ShowAsHighlighted = item.Email.StartsWith("admin")
+            //    };
+            //    indexVMList.Add(vm);
+            //}
+            //return indexVMList
+            //    .OrderBy(o => o.Name)
+            //    .ToArray();
         }
+
 
         public Employee GetEmployeeById(int id)
         {
-            return employees
-                .Where(o => o.Id == id)
-                .Single();
+            return context
+                .Employees
+                .Find(id);
         }
 
-        public AboutVM GetAbout()
-        {
-            return new AboutVM
-            {
-                Header = contentService.GetHeader(),
-                Body = contentService.GetBody(),
-                EmployeeNames = GetAllEmployees()
-                .Select(o => o.Name)
-                .ToArray()
-            };
-        }
+        //public AboutVM GetAbout()
+        //{
+        //    return new AboutVM
+        //    {
+        //        Header = contentService.GetHeader(),
+        //        Body = contentService.GetBody(),
+        //        EmployeeNames = GetAllEmployees()
+        //        .Select(o => o.Name)
+        //        .ToArray()
+        //    };
+        //}
     }
 }

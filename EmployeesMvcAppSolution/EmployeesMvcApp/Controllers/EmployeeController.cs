@@ -1,4 +1,6 @@
 ﻿using EmployeesMvcApp.Models;
+using EmployeesMvcApp.Models.Entities;
+using EmployeesMvcApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,16 +21,16 @@ namespace EmployeesMvcApp.Controllers
         }
 
 
-        [Route("About")]
-        public IActionResult About()
-        {
-            //var header = contentService.GetHeader();
-            //var body = contentService.GetBody();
-            //return View(contentService);
+        //[Route("About")]
+        //public IActionResult About()
+        //{
+        //    //var header = contentService.GetHeader();
+        //    //var body = contentService.GetBody();
+        //    //return View(contentService);
 
             
-            return View(service.GetAbout());
-        }
+        //    return View(service.GetAbout());
+        //}
 
 
         [Route("")]
@@ -48,7 +50,7 @@ namespace EmployeesMvcApp.Controllers
 
         [Route("/Employee/Create")]
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(EmployeeCreateVM employee)
         {
             if (!ModelState.IsValid)
                 return View();

@@ -17,6 +17,7 @@ namespace EmployeesMvcApp.Models.Entities
         {
         }
 
+        public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,8 +33,17 @@ namespace EmployeesMvcApp.Models.Entities
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<Company>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Employee>(entity =>
             {
+                entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -41,6 +51,11 @@ namespace EmployeesMvcApp.Models.Entities
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Company)
+                    .WithMany(p => p.Employees)
+                    .HasForeignKey(d => d.CompanyId)
+                    .HasConstraintName("FK__Employees__Compa__48CFD27E");
             });
 
             OnModelCreatingPartial(modelBuilder);

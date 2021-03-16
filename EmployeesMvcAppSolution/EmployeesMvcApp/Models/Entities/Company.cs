@@ -5,13 +5,16 @@ using System.Collections.Generic;
 
 namespace EmployeesMvcApp.Models.Entities
 {
-    public partial class Employee
+    public partial class Company
     {
+        public Company()
+        {
+            Employees = new HashSet<Employee>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public int? CompanyId { get; set; }
 
-        public virtual Company Company { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

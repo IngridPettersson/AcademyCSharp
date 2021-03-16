@@ -1,7 +1,9 @@
 using EmployeesMvcApp.Models;
+using EmployeesMvcApp.Models.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -20,10 +22,12 @@ namespace EmployeesMvcApp
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EmployeesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddControllersWithViews();
             //services.AddTransient<EmployeeService>(); ////Skapas en ny instans varje gång
-            services.AddSingleton<EmployeeService>(); ////Blir som statiskt, att alla delar på den skapade instansen.
+            services.AddTransient<EmployeeService>(); ////Blir som statiskt, att alla delar på den skapade instansen.
             //services.AddScoped<EmployeeService>();
             services.AddTransient<IContentService, DevContentService>();
             //services.AddTransient<IContentService, ReleaseContentService>();
+
+            services.AddDbContext<MyContext>(o => o.UseSqlServer(connString));
 
 
 

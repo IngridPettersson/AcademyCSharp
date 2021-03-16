@@ -1,18 +1,20 @@
-﻿@model Employee[]
-@{ 
+﻿@model EmployeeIndexVM[]
+@{
     ViewBag.Title = "Employees - Home";
     ViewBag.Heading = "Employees";
 }
 <div>
-    @if (Model.Length > 0)
-    {
-        <p>List of employees</p>
-
-    }
-    <ul>
+    
+    <table>
+            <tr>
+                <th>Employees</th>
+            </tr>
         @foreach (var item in Model)
         {
-            <li><a asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></li>
+            <tr>
+                <td><a style="@(item.ShowAsHighlighted ? "color:red" : "")" asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></td>
+
+            </tr>
         }
-    </ul>
+    </table>
 </div>
