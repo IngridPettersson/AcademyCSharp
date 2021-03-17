@@ -32,12 +32,15 @@ namespace MemoriesProject.Controllers
 
         }
 
-        //[Route("/Memory/Create")]
-        //[HttpPost]
-        //public IActionResult Create()
-        //{
-        //    service.AddMemory();
+        [Route("/Memory/Create")]
+        [HttpPost]
+        public IActionResult Create(MemoryCreateVM memory)
+        {
+            if (!ModelState.IsValid)
+                return View();
 
-        //}
+            service.AddMemory(memory);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -11,10 +11,8 @@ namespace MemoriesProject.Models.Entities
         public string MemoryHolder { get; set; }
         public string PeopleInMemory { get; set; }
         public string MemoryTitle { get; set; }
-        public DateTime? When { get; set; }
         public string WhenInWords { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime AddedWhen { get; set; }
     }
 }

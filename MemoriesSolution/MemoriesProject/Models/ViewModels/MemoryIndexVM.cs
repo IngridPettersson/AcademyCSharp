@@ -15,7 +15,7 @@ namespace MemoriesProject.Models.ViewModels
         public string MemoryTitle { get; set; }
 
         //Hur skriva in datetime
-        public DateTime When { get; set; }
+        //public DateTime When { get; set; }
         public string WhenInWords { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }

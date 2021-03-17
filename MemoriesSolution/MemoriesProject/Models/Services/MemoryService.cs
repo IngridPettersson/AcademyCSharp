@@ -24,7 +24,6 @@ namespace MemoriesProject.Models.Services
                     MemoryHolder = o.MemoryHolder,
                     PeopleInMemory = o.PeopleInMemory,
                     MemoryTitle = o.MemoryTitle,
-                    When = (DateTime)o.When,
                     WhenInWords = o.WhenInWords,
                     Description = o.Description
                 }
@@ -32,9 +31,22 @@ namespace MemoriesProject.Models.Services
                 .ToArray();
         }
 
-        internal void AddMemory()
+        internal void AddMemory(MemoryCreateVM viewModel)
         {
-            throw new NotImplementedException();
+            context.Memories
+                .Add(new Memory
+                {
+                    MemoryHolder = viewModel.MemoryHolder,
+                    PeopleInMemory = viewModel.PeopleInMemory,
+                    MemoryTitle = viewModel.MemoryTitle,
+                    //When = viewModel.When,
+                    WhenInWords = viewModel.WhenInWords,
+                    Description = viewModel.Description,
+                    ImageUrl = viewModel.ImageUrl,
+                    //AddedWhen = viewModel.AddedWhen
+                });
+            context.SaveChanges();
+            
         }
     }
 }

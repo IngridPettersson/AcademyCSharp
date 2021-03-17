@@ -1,37 +1,34 @@
-﻿@model MemoriesProject.Models.ViewModels.MemoryCreateVM
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Lägg till minne</title>
-</head>
-<body>
+﻿@model MemoryCreateVM
+@{ 
+    ViewBag.Title = " Lägg till minne";
+    ViewBag.Heading = "Lägg till ditt minne";
+}
     <form class="row g-3" method="post">
-        <div class="col">
+        <div class="col-4">
             <label asp-for="MemoryHolder"></label>
             <input asp-for="MemoryHolder" />
             <span asp-validation-for="MemoryHolder"></span>
         </div>
 
-        <div class="col">
+        <div class="col-4">
             <label asp-for="PeopleInMemory"></label>
-            <input asp-for="PeopleInMemory" />
+            <textarea asp-for="PeopleInMemory"></textarea>
             <span asp-validation-for="PeopleInMemory"></span>
         </div>
 
-        <div class="col">
+        <div class="col-4">
             <label asp-for="MemoryTitle"></label>
             <input asp-for="MemoryTitle" />
             <span asp-validation-for="MemoryTitle"></span>
         </div>
 
-        <div class="col">
+        @*<div class="col-6">
             <label asp-for="When"></label>
             <input asp-for="When" />
             <span asp-validation-for="When"></span>
-        </div>
+        </div>*@
 
-        <div class="col">
+        <div class="col-6">
             <label asp-for="WhenInWords"></label>
             <input asp-for="WhenInWords" />
             <span asp-validation-for="WhenInWords"></span>
@@ -49,10 +46,7 @@
             <input asp-for="BotCheck" />
             <span asp-validation-for="BotCheck"></span>*@
         <div class="col-auto">
-            <button class="btn" type="submit" name="name" value="Lägg till minne" style="background-color:bisque">Lägg till minne</button>
+            <button class="btn" type="submit" name="name" value="Lägg till minne">Lägg till minne</button>
 
         </div>
-        @*<input type="submit" name="name" value="Lägg till minne" style="background-color: bisque;" />*@
     </form>
-</body>
-</html>
