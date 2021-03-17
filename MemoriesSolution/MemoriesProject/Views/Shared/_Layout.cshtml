@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    @RenderSection("css", false)
+</head>
+<body>
+    <nav>
+        <a asp-controller="Memory" asp-action="Index">Min sida</a>&emsp;
+        <a asp-controller="Memory" asp-action="Create">Lägg till minne</a>
+    </nav>
+    @RenderBody()
+</body>
+</html>
