@@ -3,15 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     @RenderSection("css", false)
 </head>
-<body>
-    <nav>
-        <a asp-controller="Memory" asp-action="Index">Min sida</a>&emsp;
+<body style="margin: 0 auto">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a style="margin-left:3rem" asp-controller="Memory" asp-action="Index">Min sida</a>&emsp;
         <a asp-controller="Memory" asp-action="Create">Lägg till minne</a>
     </nav>
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
 </body>
 </html>

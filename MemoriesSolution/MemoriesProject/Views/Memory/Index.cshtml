@@ -7,26 +7,27 @@
 <body>
     <h1>Mina minnen</h1> @** Ska vara dynamiskt, ev en egen klass MemoryHolder eller Person
         alt. bara en statisk sträng MemoryHolder på klassen MemoryIndexVM*@
-    <table>
+    <table class="table table-striped">
         <tr>
-            <th>Vems minne</th>
+            <th style="padding-left:3rem">Vems minne</th>
             <th>Minnet berör</th>
             <th>Minnets titel</th>
             <th>Datum</th>
             <th>Tidpunkt i ord</th>
             <th>Beskrivning</th>
+            <th>Minnet tillagt</th>
 
         </tr>
         @foreach (var memory in Model)
         {
             <tr>
-                <td>@memory.MemoryHolder</td>
+                <td style="padding-left:2rem">@memory.MemoryHolder</td>
                 <td>@memory.PeopleInMemory</td>
                 <td>@memory.MemoryTitle</td>
                 <td>@memory.When</td>
                 <td>@memory.WhenInWords</td>
                 <td>@memory.Description</td>
-                <td>@DateTime.Now</td>
+                <td>@DateTime.Now.Date</td>
             </tr>
         }
     </table>

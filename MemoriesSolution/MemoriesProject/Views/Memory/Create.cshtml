@@ -6,29 +6,39 @@
     <title>Lägg till minne</title>
 </head>
 <body>
-    <form method="post">
-        <label asp-for="MemoryHolder"></label>
-        <input asp-for="MemoryHolder" />
-        <span asp-validation-for="MemoryHolder"></span>
+    <form class="row g-3" method="post">
+        <div class="col">
+            <label asp-for="MemoryHolder"></label>
+            <input asp-for="MemoryHolder" />
+            <span asp-validation-for="MemoryHolder"></span>
+        </div>
 
-        <label asp-for="PeopleInMemory"></label>
-        <input asp-for="PeopleInMemory" />
-        <span asp-validation-for="PeopleInMemory"></span>
+        <div class="col">
+            <label asp-for="PeopleInMemory"></label>
+            <input asp-for="PeopleInMemory" />
+            <span asp-validation-for="PeopleInMemory"></span>
+        </div>
 
-        <label asp-for="MemoryTitle"></label>
-        <input asp-for="MemoryTitle" />
-        <span asp-validation-for="MemoryTitle"></span>
+        <div class="col">
+            <label asp-for="MemoryTitle"></label>
+            <input asp-for="MemoryTitle" />
+            <span asp-validation-for="MemoryTitle"></span>
+        </div>
 
-        <label asp-for="When"></label>
-        <input asp-for="When" />
-        <span asp-validation-for="When"></span>
+        <div class="col">
+            <label asp-for="When"></label>
+            <input asp-for="When" />
+            <span asp-validation-for="When"></span>
+        </div>
 
-        <label asp-for="WhenInWords"></label>
-        <input asp-for="WhenInWords" />
-        <span asp-validation-for="WhenInWords"></span>
+        <div class="col">
+            <label asp-for="WhenInWords"></label>
+            <input asp-for="WhenInWords" />
+            <span asp-validation-for="WhenInWords"></span>
+        </div>
 
         <label asp-for="Description"></label>
-        <input asp-for="Description" />
+        <textarea asp-for="Description"></textarea>
         <span asp-validation-for="Description"></span>
 
         <label asp-for="ImageUrl"></label>
@@ -36,10 +46,13 @@
         <span asp-validation-for="ImageUrl"></span>
 
         @*<label asp-for="BotCheck"></label>
-        <input asp-for="BotCheck" />
-        <span asp-validation-for="BotCheck"></span>*@
+            <input asp-for="BotCheck" />
+            <span asp-validation-for="BotCheck"></span>*@
+        <div class="col-auto">
+            <button class="btn" type="submit" name="name" value="Lägg till minne" style="background-color:bisque">Lägg till minne</button>
 
-        <input type="submit" name="name" value="Lägg till minne" style="background-color: bisque;" />
+        </div>
+        @*<input type="submit" name="name" value="Lägg till minne" style="background-color: bisque;" />*@
     </form>
 </body>
 </html>
