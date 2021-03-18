@@ -1,0 +1,21 @@
+﻿@model MemoryDeleteVM
+@{
+    ViewBag.Title = "Ta bort minne";
+    ViewBag.Heading = "Ta bort minne";
+}
+
+<form asp-controller="Memory" asp-action="Delete" method="post">
+    <h6>Är du säker på att du vill ta bort @Model.MemoryHolder:s minne "@Model.MemoryTitle"?</h6>
+    <div class="col-auto">
+        <button class="btn btn-danger" id="delete" type="submit" name="name">Ja, radera minnet</button>
+    </div>
+</form>
+
+<form asp-controller="Memory" asp-action="Index" method="get">
+    <div class="col-auto">
+<button class="btn btn-success" id="reset" type="submit" name="name">Nej, behåll minnet</button>
+    </div>
+</form>
+
+    
+

@@ -19,7 +19,7 @@ namespace MemoriesProject.Models.ViewModels
         //public DateTime When { get; set; }
         public string WhenInWords { get; set; }
         public string Description { get; set; }
-        public DateTime AddedWhen { get; set; }
+        public DateTime? AddedWhen { get; set; }
         public bool HasImage { get; set; }
     }
 }

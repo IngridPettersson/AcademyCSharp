@@ -15,5 +15,6 @@ namespace MemoriesProject.Models.Entities
         public string Description { get; set; }
         public string ImagePath { get; set; }
         public bool? HasImage { get; set; }
+        public DateTime? AddedWhen { get; set; }
     }
 }

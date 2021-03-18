@@ -6,8 +6,8 @@
     <form asp-controller="Memory" asp-action="create" enctype="multipart/form-data" class="row g-3" method="post">
         <div class="col-3">
             <label asp-for="@Model.MemoryHolder"></label>
-            <input asp-for="MemoryHolder" />
-            <span asp-validation-for="MemoryHolder"></span>
+            <input asp-for="@Model.MemoryHolder" />
+            <span asp-validation-for="@Model.MemoryHolder"></span>
         </div>
 
         <div class="col-3">

@@ -1,5 +1,54 @@
 ﻿@model MemoryEditVM
-@{ 
+@{
     ViewBag.Title = "Ändra minne";
     ViewBag.Heading = "Här kan du ändra ditt minne";
 }
+
+<form asp-controller="Memory" asp-action="edit" enctype="multipart/form-data" class="row g-3" method="post">
+    <div class="col-3">
+        <label asp-for="@Model.MemoryHolder"></label>
+        <input asp-for="MemoryHolder" />
+        <span asp-validation-for="MemoryHolder"></span>
+    </div>
+
+    <div class="col-3">
+        <label asp-for="PeopleInMemory"></label>
+        <textarea asp-for="PeopleInMemory"></textarea>
+        <span asp-validation-for="PeopleInMemory"></span>
+    </div>
+
+    <div class="col-3">
+        <label asp-for="MemoryTitle"></label>
+        <input asp-for="MemoryTitle" />
+        <span asp-validation-for="MemoryTitle"></span>
+    </div>
+
+    @*<div class="col-6">
+            <label asp-for="When"></label>
+            <input asp-for="When" />
+            <span asp-validation-for="When"></span>
+        </div>*@
+
+    <div class="col-3">
+        <label asp-for="WhenInWords"></label>
+        <input asp-for="WhenInWords" />
+        <span asp-validation-for="WhenInWords"></span>
+    </div>
+
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description"></textarea>
+    <span asp-validation-for="Description"></span>
+
+    <label asp-for="ImageToUpload"></label>
+    <input asp-for="ImageToUpload" />
+    <span asp-validation-for="ImageToUpload"></span>
+
+    @*<label asp-for="BotCheck"></label>
+        <input asp-for="BotCheck" />
+        <span asp-validation-for="BotCheck"></span>*@
+    <div class="col-auto">
+        <button class="btn" type="submit" name="name">Bekräfta ändringar</button>
+
+    </div>
+</form>
+

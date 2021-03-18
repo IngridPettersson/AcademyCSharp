@@ -34,6 +34,8 @@ namespace MemoriesProject.Models.Entities
 
             modelBuilder.Entity<Memory>(entity =>
             {
+                entity.Property(e => e.AddedWhen).HasColumnType("datetime");
+
                 entity.Property(e => e.Description).HasMaxLength(4000);
 
                 entity.Property(e => e.ImagePath).HasMaxLength(200);

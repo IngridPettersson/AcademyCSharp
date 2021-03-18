@@ -16,7 +16,7 @@ namespace MemoriesProject.Controllers
         {
             this.service = service;
         }
-        
+
         [Route("")]
         public IActionResult Index()
         {
@@ -56,7 +56,7 @@ namespace MemoriesProject.Controllers
         public IActionResult Edit(int id)
         {
             var memory = service.GetMemoryById(id);
-            var memoryViewModel = service.GetMemoryEditVM(memory);
+            MemoryEditVM memoryViewModel = service.GetMemoryEditVM(memory);
             return View(memoryViewModel);
         }
 
@@ -68,6 +68,26 @@ namespace MemoriesProject.Controllers
                 return View();
 
             service.EditMemory(memoryVM, id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Route("/Memory/Delete/{Id}")]
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var memory = service.GetMemoryById(id);
+            MemoryDeleteVM deleteVM = service.GetDeleteVM(memory);
+            return View(deleteVM);
+        }
+
+        [Route("/Memory/Delete/{Id}")]
+        [HttpPost]
+        public IActionResult Delete(MemoryDeleteVM memoryDeleteVM, int id)
+        {
+            //if(submit-button clicked)
+            {
+                service.DeleteMemory(memoryDeleteVM, id);
+            }
             return RedirectToAction(nameof(Index));
         }
 

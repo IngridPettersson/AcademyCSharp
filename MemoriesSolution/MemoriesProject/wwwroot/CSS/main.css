@@ -67,3 +67,22 @@ html {
     z-index: 1;
     opacity: 1.0;
 }
+
+.memory-title {
+    font-weight:bold;
+}
+
+.added-when {
+    font-style:italic;
+    font-size:1.2rem;
+}
+
+/*#delete {
+    background-color:firebrick;
+    color:antiquewhite;
+}
+
+#reset {
+    background-color:lightgreen;
+    color:darkslategray;
+}*/

@@ -29,6 +29,6 @@ namespace MemoriesProject.Models.ViewModels
         //public string ImageUrl { get; set; }
         [Display(Name="Här kan du ladda upp en bild till ditt minne")]
         public IFormFile ImageToUpload { get; set; }
-        public DateTime AddedWhen { get; set; }
+        public DateTime? AddedWhen { get; set; }
     }
 }
