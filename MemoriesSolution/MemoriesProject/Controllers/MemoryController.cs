@@ -62,12 +62,12 @@ namespace MemoriesProject.Controllers
 
         [Route("/Memory/Edit/{Id}")]
         [HttpPost]
-        public IActionResult Edit(MemoryEditVM memoryVM)
+        public IActionResult Edit(MemoryEditVM memoryVM, int id)
         {
             if (!ModelState.IsValid)
                 return View();
 
-            service.AddMemory(memoryVM);
+            service.EditMemory(memoryVM, id);
             return RedirectToAction(nameof(Index));
         }
 

@@ -36,6 +36,26 @@ namespace MemoriesProject.Models.Services
                 .ToArray();
         }
 
+        internal void EditMemory(MemoryEditVM viewModel, int id)
+        {
+            var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                viewModel.ImageToUpload.CopyTo(fileStream);
+            }
+
+            var memoryToUpdate = context.Memories
+                .Find(id);
+
+            memoryToUpdate.MemoryHolder = viewModel.MemoryHolder;
+            memoryToUpdate.PeopleInMemory = viewModel.PeopleInMemory;
+            memoryToUpdate.MemoryTitle = viewModel.MemoryTitle;
+            memoryToUpdate.WhenInWords = viewModel.WhenInWords;
+            memoryToUpdate.Description = viewModel.Description;
+            memoryToUpdate.ImagePath = viewModel.ImageToUpload.FileName;
+            memoryToUpdate.HasImage = viewModel.ImageToUpload.FileName.Length > 0;
+        }
+
         internal void AddMemory(MemoryCreateVM viewModel)
         {
             var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
