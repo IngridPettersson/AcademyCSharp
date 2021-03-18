@@ -3,20 +3,20 @@
     ViewBag.Title = " Lägg till minne";
     ViewBag.Heading = "Lägg till ditt minne";
 }
-    <form class="row g-3" method="post">
-        <div class="col-4">
-            <label asp-for="MemoryHolder"></label>
+    <form asp-controller="Memory" asp-action="create" enctype="multipart/form-data" class="row g-3" method="post">
+        <div class="col-3">
+            <label asp-for="@Model.MemoryHolder"></label>
             <input asp-for="MemoryHolder" />
             <span asp-validation-for="MemoryHolder"></span>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
             <label asp-for="PeopleInMemory"></label>
             <textarea asp-for="PeopleInMemory"></textarea>
             <span asp-validation-for="PeopleInMemory"></span>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
             <label asp-for="MemoryTitle"></label>
             <input asp-for="MemoryTitle" />
             <span asp-validation-for="MemoryTitle"></span>
@@ -28,7 +28,7 @@
             <span asp-validation-for="When"></span>
         </div>*@
 
-        <div class="col-6">
+        <div class="col-3">
             <label asp-for="WhenInWords"></label>
             <input asp-for="WhenInWords" />
             <span asp-validation-for="WhenInWords"></span>
@@ -38,15 +38,15 @@
         <textarea asp-for="Description"></textarea>
         <span asp-validation-for="Description"></span>
 
-        <label asp-for="ImageUrl"></label>
-        <input asp-for="ImageUrl" />
-        <span asp-validation-for="ImageUrl"></span>
+        <label asp-for="ImageToUpload"></label>
+        <input asp-for="ImageToUpload" />
+        <span asp-validation-for="ImageToUpload"></span>
 
         @*<label asp-for="BotCheck"></label>
             <input asp-for="BotCheck" />
             <span asp-validation-for="BotCheck"></span>*@
         <div class="col-auto">
-            <button class="btn" type="submit" name="name" value="Lägg till minne">Lägg till minne</button>
+            <button class="btn" type="submit" name="name">Lägg till minne</button>
 
         </div>
     </form>

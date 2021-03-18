@@ -36,7 +36,7 @@ namespace MemoriesProject.Models.Entities
             {
                 entity.Property(e => e.Description).HasMaxLength(4000);
 
-                entity.Property(e => e.ImageUrl).HasMaxLength(70);
+                entity.Property(e => e.ImagePath).HasMaxLength(200);
 
                 entity.Property(e => e.MemoryHolder)
                     .IsRequired()

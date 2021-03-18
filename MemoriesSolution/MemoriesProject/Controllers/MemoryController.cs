@@ -34,13 +34,42 @@ namespace MemoriesProject.Controllers
 
         [Route("/Memory/Create")]
         [HttpPost]
-        public IActionResult Create(MemoryCreateVM memory)
+        public IActionResult Create(MemoryCreateVM memoryVM)
         {
             if (!ModelState.IsValid)
                 return View();
 
-            service.AddMemory(memory);
+            service.AddMemory(memoryVM);
             return RedirectToAction(nameof(Index));
         }
+
+        [Route("/Memory/Details/{Id}")]
+        public IActionResult Details(int id)
+        {
+            var memory = service.GetMemoryById(id);
+            var memoryViewModel = service.GetMemoryDetailsVM(memory);
+            return View(memoryViewModel);
+        }
+
+        [Route("/Memory/Edit/{Id}")]
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var memory = service.GetMemoryById(id);
+            var memoryViewModel = service.GetMemoryEditVM(memory);
+            return View(memoryViewModel);
+        }
+
+        [Route("/Memory/Edit/{Id}")]
+        [HttpPost]
+        public IActionResult Edit(MemoryEditVM memoryVM)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            service.AddMemory(memoryVM);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

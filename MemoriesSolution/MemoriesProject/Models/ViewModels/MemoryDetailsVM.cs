@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace MemoriesProject.Models.Entities
+namespace MemoriesProject.Models.ViewModels
 {
-    public partial class Memory
+    public class MemoryDetailsVM
     {
-        public int Id { get; set; }
         public string MemoryHolder { get; set; }
         public string PeopleInMemory { get; set; }
         public string MemoryTitle { get; set; }
         public string WhenInWords { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
-        public bool? HasImage { get; set; }
     }
 }

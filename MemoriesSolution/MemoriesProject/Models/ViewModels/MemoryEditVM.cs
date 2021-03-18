@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MemoriesProject.Models.ViewModels
 {
-    public class MemoryCreateVM
+    public class MemoryEditVM
     {
-
         [Display(Name = "Vem tillhör minnet")]
         [Required(ErrorMessage = "Du måste ange vem minnet tillhör")]
         public string MemoryHolder { get; set; }
@@ -27,7 +26,7 @@ namespace MemoriesProject.Models.ViewModels
         public string Description { get; set; }
         //[Display(Name = "Här kan du lägga till en bild till minnet")]
         //public string ImageUrl { get; set; }
-        [Display(Name="Här kan du ladda upp en bild till ditt minne")]
+        [Display(Name = "Här kan du ladda upp en bild till ditt minne")]
         public IFormFile ImageToUpload { get; set; }
         public DateTime AddedWhen { get; set; }
     }

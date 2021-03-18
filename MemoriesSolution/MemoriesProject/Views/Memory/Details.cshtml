@@ -1,0 +1,17 @@
+﻿@model MemoryDetailsVM
+@{
+    ViewBag.Title = "Detaljer om minnet";
+    ViewBag.Headning = "Ditt minne";
+}
+<div class="container row g-3">
+    <div class="col-6">
+        <h3>@Model.MemoryTitle</h3>
+        <h6>@Model.MemoryHolder har det här minnet tillsammans med @Model.PeopleInMemory.</h6>
+        <h6>När: @Model.WhenInWords</h6>
+        <p>@Model.Description</p>
+    </div>
+
+    <div class="col-6">
+        <img class="details-img" src="/Uploads/@Model.ImagePath" alt="Bild till minnet" />
+    </div>
+</div>
