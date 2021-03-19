@@ -41,15 +41,16 @@ namespace MemoriesProject.Models.Services
 
         internal void EditMemory(MemoryEditVM viewModel, int id)
         {
-            if (viewModel.ImageToUpload != null)
-            {
-                var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    viewModel.ImageToUpload.CopyTo(fileStream);
-                }
+            
+            //if (viewModel.ImageToUpload != null)
+            //{
+            //    var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+            //    using (var fileStream = new FileStream(filePath, FileMode.Create))
+            //    {
+            //        viewModel.ImageToUpload.CopyTo(fileStream);
+            //    }
 
-            }
+            //}
 
             var memoryToUpdate = context.Memories
                 .Find(id);
@@ -59,8 +60,8 @@ namespace MemoriesProject.Models.Services
             memoryToUpdate.MemoryTitle = viewModel.MemoryTitle;
             memoryToUpdate.WhenInWords = viewModel.WhenInWords;
             memoryToUpdate.Description = viewModel.Description;
-            memoryToUpdate.ImagePath = viewModel.ImageToUpload?.FileName;
-            memoryToUpdate.HasImage = viewModel.ImageToUpload?.FileName.Length > 0;
+            //memoryToUpdate.ImagePath = viewModel.ImageToUpload?.FileName;
+            //memoryToUpdate.HasImage = viewModel.ImageToUpload?.FileName.Length > 0;
 
             context.SaveChanges();
         }
@@ -84,6 +85,36 @@ namespace MemoriesProject.Models.Services
                 .Remove(memoryToRemove);
 
             context.SaveChanges();
+        }
+
+        internal Task AddMemoryAsync(MemoryCreateVM viewModel)
+        {
+            if (viewModel.ImageToUpload != null)
+            {
+                var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    viewModel.ImageToUpload.CopyTo(fileStream);
+                }
+            }
+
+
+            context.Memories
+                .Add(new Memory
+                {
+                    MemoryHolder = viewModel.MemoryHolder,
+                    PeopleInMemory = viewModel.PeopleInMemory,
+                    MemoryTitle = viewModel.MemoryTitle,
+                    //When = viewModel.When,
+                    WhenInWords = viewModel.WhenInWords,
+                    Description = viewModel.Description,
+                    ImagePath = viewModel.ImageToUpload?.FileName, //<img src=/Uploads/@Model.ImagePath>
+                    HasImage = viewModel.ImageToUpload?.FileName.Length > 0,
+                    AddedWhen = DateTime.Now
+                    //AddedWhen = new DateTime(DateTime.Now.ToShortDateString())
+                });
+            context.SaveChanges();
+            return Task.CompletedTask;
         }
 
         internal void AddMemory(MemoryCreateVM viewModel)

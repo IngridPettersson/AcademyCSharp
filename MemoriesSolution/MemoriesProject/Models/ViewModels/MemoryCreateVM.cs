@@ -10,7 +10,7 @@ namespace MemoriesProject.Models.ViewModels
     public class MemoryCreateVM
     {
 
-        [Display(Name = "Vem tillhör minnet")]
+        [Display(Name = "Ditt namn")]
         [Required(ErrorMessage = "Du måste ange vem minnet tillhör")]
         public string MemoryHolder { get; set; }
 

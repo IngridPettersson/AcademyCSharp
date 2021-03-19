@@ -3,7 +3,7 @@
     ViewBag.Title = " Lägg till minne";
     ViewBag.Heading = "Lägg till ditt minne";
 }
-    <form asp-controller="Memory" asp-action="create" enctype="multipart/form-data" class="row g-3" method="post">
+    <form enctype="multipart/form-data" class="row g-3" method="post">
         <div class="col-3">
             <label asp-for="@Model.MemoryHolder"></label>
             <input asp-for="@Model.MemoryHolder" />

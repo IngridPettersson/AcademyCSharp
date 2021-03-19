@@ -24,6 +24,7 @@ namespace MemoriesProject.Models.ViewModels
         public string WhenInWords { get; set; }
         [Display(Name = "Berätta om ditt minne här")]
         public string Description { get; set; }
+        public string ImagePath { get; set; }
         //[Display(Name = "Här kan du lägga till en bild till minnet")]
         //public string ImageUrl { get; set; }
         [Display(Name = "Här kan du ladda upp en bild till ditt minne")]

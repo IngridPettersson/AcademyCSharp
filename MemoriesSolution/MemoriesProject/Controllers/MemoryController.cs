@@ -34,14 +34,27 @@ namespace MemoriesProject.Controllers
 
         [Route("/Memory/Create")]
         [HttpPost]
-        public IActionResult Create(MemoryCreateVM memoryVM)
+        //Den verkar hitta routern Create trots att den nu heter CreateAsync
+        public async Task<IActionResult> CreateAsync(MemoryCreateVM memoryVM)
         {
             if (!ModelState.IsValid)
                 return View();
 
-            service.AddMemory(memoryVM);
+            
+            await service.AddMemoryAsync(memoryVM);
             return RedirectToAction(nameof(Index));
         }
+
+        //[Route("/Memory/Create")]
+        //[HttpPost]
+        //public IActionResult Create(MemoryCreateVM memoryVM)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return View();
+
+        //    service.AddMemory(memoryVM);
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         [Route("/Memory/Details/{Id}")]
         public IActionResult Details(int id)
