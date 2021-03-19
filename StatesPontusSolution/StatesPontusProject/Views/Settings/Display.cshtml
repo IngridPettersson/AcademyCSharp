@@ -1,0 +1,17 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model StatesPontusProject.Models.ViewModels.SettingsDisplayVM
+    
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title>Display user settings</title>
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+        </head>
+    <body>
+        <div>
+            <p>@Model.Message</p>
+            <p>Support-Email: @Model.Email</p>
+            <p>Company name: @Model.Email</p>
+        </div>
+    </body>
+    </html>

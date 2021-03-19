@@ -1,0 +1,23 @@
+﻿@model StatesPontusProject.Models.ViewModels.SettingsCreateVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create user settings</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+</head>
+<body>
+    <form method="post">
+        <label asp-for="@Model.Email"></label>
+        <input asp-for="@Model.Email" />
+        <span asp-validation-for="@Model.Email"></span>
+
+        <label asp-for="CompanyName"></label>
+        <input asp-for="CompanyName" />
+        <span asp-validation-for="CompanyName"></span>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
