@@ -1,4 +1,4 @@
-﻿@model MemoryLoginVM
+﻿@model UserLoginVM
 
 @{ 
     ViewBag.Title = "Logga in";
@@ -6,13 +6,15 @@
 }
 
 <form method="post">
-    <label asp-for="Username"></label>
-    <input asp-for="Username" />
-    <span asp-validation-for="Username"></span>
+    <label asp-for="@Model.Username"></label>
+    <input asp-for="@Model.Username" />
+    <span asp-validation-for="@Model.Username"></span>
 
     <label asp-for="Password"></label>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
 
-    <button asp-controller="Memory" asp-action="Login" type="submit"></button>
+    <div class="col-auto">
+        <button class="btn" type="submit" name="name">Logga in</button>
+    </div>
 </form>

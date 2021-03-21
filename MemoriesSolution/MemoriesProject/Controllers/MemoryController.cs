@@ -119,6 +119,9 @@ namespace MemoriesProject.Controllers
             {
                 return View();
             }
+
+
+
             return RedirectToAction(nameof(Index));
         }
 

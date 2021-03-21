@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MemoriesProject.Models.ViewModels
 {
-    public class MemoryLoginVM
+    public class UserLoginVM
     {
-        [Required(ErrorMessage ="Du måste fylla i ett användarnamn för att logga in")]
         [Display(Name ="Användarnamn")]
+        [Required(ErrorMessage ="Du måste fylla i ett användarnamn för att logga in")]
         public string Username { get; set; }
-        [Required(ErrorMessage ="Du måste fylla i ett lösenord för att logga in")]
         [Display(Name ="Lösenord")]
+        [Required(ErrorMessage ="Du måste fylla i ett lösenord för att logga in")]
         public string Password { get; set; }
 
     }

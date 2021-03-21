@@ -18,6 +18,7 @@ namespace MemoriesProject.Models.Entities
         }
 
         public virtual DbSet<Memory> Memories { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,6 +52,19 @@ namespace MemoriesProject.Models.Entities
                 entity.Property(e => e.PeopleInMemory).HasMaxLength(70);
 
                 entity.Property(e => e.WhenInWords).HasMaxLength(70);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(64);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(32);
             });
 
             OnModelCreatingPartial(modelBuilder);
