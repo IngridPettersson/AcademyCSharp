@@ -104,26 +104,7 @@ namespace MemoriesProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Route("/Memory/Login")]
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
 
-        [Route("/Memory/Login")]
-        [HttpPost]
-        public IActionResult LoginSuccess()
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-
-
-            return RedirectToAction(nameof(Index));
-        }
 
     }
 }

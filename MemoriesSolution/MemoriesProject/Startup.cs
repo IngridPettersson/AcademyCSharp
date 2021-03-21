@@ -21,6 +21,7 @@ namespace MemoriesProject
         {
             services.AddControllersWithViews();
             services.AddTransient<MemoryService>();
+            services.AddTransient<UserService>();
 
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MemoryDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<MyContext>(o => o.UseSqlServer(connString));
