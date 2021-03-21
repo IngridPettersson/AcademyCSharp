@@ -56,8 +56,6 @@ namespace MemoriesProject.Models.Entities
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(64);

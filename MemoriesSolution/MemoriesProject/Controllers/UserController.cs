@@ -33,7 +33,7 @@ namespace MemoriesProject.Controllers
 
 
             await service.AddUserLogin(loginVM);
-            return RedirectToAction("Index", "MemoryController");
+            return RedirectToAction("Index", "Memory");
         }
     }
 }
