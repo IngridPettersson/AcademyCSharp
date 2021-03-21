@@ -21,6 +21,7 @@ namespace MemoriesProject.Controllers
         public IActionResult Index()
         {
             var memories = service.GetAllMemories();
+            
             return View(memories);
         }
 
@@ -40,7 +41,6 @@ namespace MemoriesProject.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            
             await service.AddMemoryAsync(memoryVM);
             return RedirectToAction(nameof(Index));
         }
@@ -100,6 +100,24 @@ namespace MemoriesProject.Controllers
             //if(submit-button clicked)
             {
                 service.DeleteMemory(memoryDeleteVM, id);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Route("/Memory/Login")]
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [Route("/Memory/Login")]
+        [HttpPost]
+        public IActionResult LoginSuccess()
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
             }
             return RedirectToAction(nameof(Index));
         }
