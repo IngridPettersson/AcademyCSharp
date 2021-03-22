@@ -1,0 +1,36 @@
+﻿@model MVCMoviesPontus.Models.ViewModels.IndexVM
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>Movies</h2>
+
+    <div>
+        <label></label>
+        <input type="text" name="name" />
+        <div id="movie-info-div"></div>
+        <button onclick="getHtml()" id="btn-html">Get HTML</button>
+        <button id="btn-json">Get JSON</button>
+    </div>
+
+    <script>
+
+        var btnHtml = document.getElementById("btn-html");
+
+        function getHtml() {
+
+            fetch("/Index/2",
+                {
+                    method: "GET",
+                }
+            )
+                .then(result => result.text())
+                .then(html =>
+                    document.getElementById("movie-info-div").innerHTML = html);
+        }
+
+    </script>
+</body>
+</html>
