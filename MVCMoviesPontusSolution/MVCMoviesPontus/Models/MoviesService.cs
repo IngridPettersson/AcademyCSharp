@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCMoviesPontus.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,16 +16,17 @@ namespace MVCMoviesPontus.Models
             new Movie {Id=4, Title="Arrival", Description="Weird objects coming up"}
         };
 
-        internal object GetMovieViewModel(int id)
+        internal IndexVM GetMovieViewModel(int id)
         {
-            throw new NotImplementedException();
-        }
+            var movie = movies
+               .Where(o => o.Id == id)
+               .Single();
 
-        public Movie GetMovieById(int id)
-        {
-            return movies
-                .Where(o => o.Id == id)
-                .Single();
+            return new IndexVM
+            {
+                Title = movie.Title,
+                Description = movie.Description
+            };
         }
     }
 }

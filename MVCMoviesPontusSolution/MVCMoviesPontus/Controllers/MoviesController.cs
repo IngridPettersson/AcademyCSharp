@@ -15,11 +15,23 @@ namespace MVCMoviesPontus.Controllers
             this.service = service;
         }
         [Route("")]
-        [Route("Index/{id}")]
-        public IActionResult Index(int id)
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("/Index/{id}")]
+        public IActionResult IndexHtml(int id)
         {
             var viewModel = service.GetMovieViewModel(id);
             return PartialView("_MovieBox", viewModel);
+        }
+
+        [Route("/IndexJson/{id}")]
+        public IActionResult IndexJSON(int id)
+        {
+            var viewModel = service.GetMovieViewModel(id);
+            return Json(viewModel);
         }
     }
 }

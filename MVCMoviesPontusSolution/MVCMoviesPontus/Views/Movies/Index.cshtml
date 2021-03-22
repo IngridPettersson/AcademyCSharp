@@ -7,25 +7,44 @@
 <body>
     <h2>Movies</h2>
 
-    <div>
-        <label></label>
-        <input type="text" name="name" />
+    <form>
+        <label for="movie-id"></label>
+        <input id="input-field" type="text" name="movie-id" />
         <div id="movie-info-div"></div>
-        <button onclick="getHtml()" id="btn-html">Get HTML</button>
-        <button id="btn-json">Get JSON</button>
-    </div>
+        <input type="button" onclick="getHtml()" id="btn-html" value="Get HTML" />
+        <input type="button" onclick="getJson()" id="btn-json" value="Get JSON"/>
+
+    </form>
 
     <script>
 
-        var btnHtml = document.getElementById("btn-html");
 
-        function getHtml() {
+        const btnHtml = document.getElementById("btn-html");
+        const btnJson = document.getElementById("btn-json");
 
-            fetch("/Index/2",
+        function getJson() {
+            let userInput = document.getElementById("input-field").value;
+            let url = `/IndexJson/${userInput}`;
+            fetch(url,
                 {
                     method: "GET",
                 }
             )
+                .then(result => result.json()) //deserielisera
+                .then(result =>
+                    document.getElementById("movie-info-div").innerHTML = result.title + result.description);
+        }
+
+        function getHtml() {
+            let userInput = document.getElementById("input-field").value;
+            let url = `/Index/${userInput}`;
+            console.log(url);
+            fetch(url,
+                {
+                    method: "GET",
+                }
+            )
+                
                 .then(result => result.text())
                 .then(html =>
                     document.getElementById("movie-info-div").innerHTML = html);
