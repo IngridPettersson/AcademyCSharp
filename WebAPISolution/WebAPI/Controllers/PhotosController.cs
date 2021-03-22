@@ -20,9 +20,9 @@ namespace WebAPI.Controllers
 
         [Route("")]
         [Route("index")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var vmArray = service.GetAllPhotos();
+            var vmArray = await service.GetAllPhotos();
             return View(vmArray);
         }
     }
