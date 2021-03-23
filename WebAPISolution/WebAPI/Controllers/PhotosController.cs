@@ -25,5 +25,6 @@ namespace WebAPI.Controllers
             var vmArray = await service.GetAllPhotos();
             return View(vmArray);
         }
+
     }
 }

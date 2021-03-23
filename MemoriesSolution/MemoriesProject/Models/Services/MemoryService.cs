@@ -92,6 +92,7 @@ namespace MemoriesProject.Models.Services
             if (viewModel.ImageToUpload != null)
             {
                 var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     viewModel.ImageToUpload.CopyTo(fileStream);

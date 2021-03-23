@@ -31,7 +31,10 @@ namespace MVCMoviesPontus.Controllers
         public IActionResult IndexJSON(int id)
         {
             var viewModel = service.GetMovieViewModel(id);
-            return Json(viewModel);
+            return Json(viewModel); //Serialization from object to string. Tror att vi låtsas att vi hämtar vår data
+                                    // från någon annanstans än från filmlistan i MovieService. Eller måste vi skicka datan
+                                    // som JSON eller HTML mellan frontend och backend? Kan vi inte bara skicka objekten
+                                    // som de är?
         }
     }
 }

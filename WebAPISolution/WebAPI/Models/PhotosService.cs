@@ -20,12 +20,13 @@ namespace WebAPI.Models
         public async Task<PhotosIndexVM[]> GetAllPhotos()
         {
             HttpClient client = httpClient.CreateClient();
-            string url = "https://jsonplaceholder.typicode.com/photos";
+            string url = "https://localhost:44362/ApiPhotos";
             string json = await client.GetStringAsync(url);
 
             Photo[] photoArr = JsonConvert.DeserializeObject<Photo[]>(json);
 
             return photoArr
+                .Take(3)
                 .Select(o => new PhotosIndexVM
                 {
                     Title = o.Title,

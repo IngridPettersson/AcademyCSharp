@@ -30,15 +30,15 @@
                     method: "GET",
                 }
             )
-                .then(result => result.json()) //deserielisera
+                .then(result => result.json()) //deserialization from string to object, eftersom vi i vår Action IndexJson
+                                               //serialiserade datan vi hämtade från vår filmlista.
                 .then(result =>
-                    document.getElementById("movie-info-div").innerHTML = result.title + result.description);
+                    document.getElementById("movie-info-div").innerHTML = `<p><strong>Title:</strong> ${result.title}</p><p><strong>Description:</strong> ${result.description}</p>`);
         }
 
         function getHtml() {
             let userInput = document.getElementById("input-field").value;
             let url = `/Index/${userInput}`;
-            console.log(url);
             fetch(url,
                 {
                     method: "GET",

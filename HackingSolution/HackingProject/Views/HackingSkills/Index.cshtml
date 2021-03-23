@@ -1,0 +1,18 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hacking homepage</title>
+</head>
+<body>
+    <a href="/home/about">Throw exception</a><br />
+    <a href="/home/non-existing-page">Go to nowhere</a>
+
+    <form asp-action="postform" method="post">
+        <label name="voluntary-input"></label>
+        <input type="text" name="voluntary-input" />
+        <input type="submit" name="name" value="" />
+    </form>
+</body>
+</html>
