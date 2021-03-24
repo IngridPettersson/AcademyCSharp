@@ -16,17 +16,26 @@ namespace MemoriesProject.Models.Services
             this.context = context;
         }
 
-        internal Task CreateUser(UserLoginVM loginVM)
+        internal Task CreateUser(UserCreateAccountVM viewModel)
         {
 
             context.Users
                 .Add(new User
                 {
-                    Username = loginVM.UsernameChoice,
-                    Password = loginVM.PasswordChoiceRepeat
+                    Username = viewModel.UsernameChoice,
+                    Password = viewModel.PasswordChoice
                 });
 
             context.SaveChanges();
+            return Task.CompletedTask;
+        }
+
+        internal Task LoginSuccess(UserLoginVM viewModel)
+        {
+            context.Users
+                .Where(o => o.Username == viewModel.Username && o.Password == viewModel.Password)
+                .Single();
+
             return Task.CompletedTask;
         }
     }

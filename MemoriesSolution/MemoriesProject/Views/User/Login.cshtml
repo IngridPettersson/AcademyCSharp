@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Logga in";
-    ViewBag.Heading = "Logga in eller skapa konto";
+    ViewBag.Heading = "Logga in";
 }
 <div class="row g-3">
     <div class="col-6">
@@ -22,24 +22,4 @@
         </form>
     </div>
 
-    <div class="col-6">
-        <form method="post">
-            <h6>Skapa konto</h6>
-            <label asp-for="@Model.UsernameChoice"></label>
-            <input asp-for="@Model.UsernameChoice" />
-            <span asp-validation-for="@Model.UsernameChoice"></span>
-
-            <label asp-for="PasswordChoice"></label>
-            <input asp-for="PasswordChoice" />
-            <span asp-validation-for="PasswordChoice"></span>
-
-            <label asp-for="PasswordChoiceRepeat"></label>
-            <input asp-for="PasswordChoiceRepeat" />
-            <span asp-validation-for="PasswordChoiceRepeat"></span>
-
-            <div class="col-auto">
-                <button class="btn" type="submit" name="name">Skapa konto</button>
-            </div>
-        </form>
-    </div>
 </div>
