@@ -22,8 +22,8 @@ namespace MemoriesProject.Models.Services
             context.Users
                 .Add(new User
                 {
-                    Username = loginVM.Username,
-                    Password = loginVM.Password
+                    Username = loginVM.UsernameChoice,
+                    Password = loginVM.PasswordChoiceRepeat
                 });
 
             context.SaveChanges();
