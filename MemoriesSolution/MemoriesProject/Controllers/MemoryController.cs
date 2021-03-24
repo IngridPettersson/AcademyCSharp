@@ -20,9 +20,11 @@ namespace MemoriesProject.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var memories = service.GetAllMemories();
-            
-            return View(memories);
+            var viewModel = service.GetAllMemories();
+
+            //var createdAccountSuccess = (string)TempData["Message"];
+
+            return View(viewModel);
         }
 
         [Route("/Memory/Create")]

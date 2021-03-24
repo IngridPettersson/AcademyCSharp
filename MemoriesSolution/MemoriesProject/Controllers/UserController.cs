@@ -32,6 +32,7 @@ namespace MemoriesProject.Controllers
                 return View();
 
             await service.CreateUser(viewModel);
+            //TempData["Message"] = "Ditt konto har skapats!";
             return RedirectToAction("Index", "Memory");  
         }
 
@@ -44,12 +45,13 @@ namespace MemoriesProject.Controllers
 
         [Route("/User/Login")]
         [HttpPost]
-        public async Task<IActionResult> Login(UserLoginVM viewModel)
+        public IActionResult Login(UserLoginVM viewModel)
         {
             if (!ModelState.IsValid)
                 return View();
 
-            await service.LoginSuccess(viewModel);
+            service.LoginSuccess(viewModel);
+
             return RedirectToAction("Index", "Memory");
             //TODO: redirect till en annan view som man får när man är inloggad, med fler features.
         }

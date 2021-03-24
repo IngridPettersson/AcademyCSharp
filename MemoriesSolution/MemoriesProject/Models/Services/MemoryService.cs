@@ -14,6 +14,8 @@ namespace MemoriesProject.Models.Services
         MyContext context;
         IWebHostEnvironment webHostEnv;
 
+        public object TempData { get; private set; }
+
         public MemoryService(MyContext context, IWebHostEnvironment webHostEnv)
         {
             this.context = context;
@@ -34,6 +36,7 @@ namespace MemoriesProject.Models.Services
                      Description = o.Description,
                      HasImage = (bool)o.HasImage,
                      AddedWhen = o.AddedWhen
+
                  }
                 )
                  .ToArray();
@@ -91,7 +94,6 @@ namespace MemoriesProject.Models.Services
         {
             if (viewModel.ImageToUpload != null)
             {
-                //string filePath = "";
                 string filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))

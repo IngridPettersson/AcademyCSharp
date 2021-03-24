@@ -20,7 +20,7 @@ namespace MemoriesProject.Models.Services
         {
 
             context.Users
-                .Add(new User
+                .AddAsync(new User
                 {
                     Username = viewModel.UsernameChoice,
                     Password = viewModel.PasswordChoice
@@ -30,13 +30,26 @@ namespace MemoriesProject.Models.Services
             return Task.CompletedTask;
         }
 
-        internal Task LoginSuccess(UserLoginVM viewModel)
+        internal void LoginSuccess(UserLoginVM viewModel)
         {
-            context.Users
-                .Where(o => o.Username == viewModel.Username && o.Password == viewModel.Password)
-                .Single();
 
-            return Task.CompletedTask;
+
+            var user = context.Users
+                .Where(o => o.Username == viewModel.Username && o.Password == viewModel.Password)
+                .SingleOrDefault();
+
+            bool existingAccount = user != null;
+
+            if (!existingAccount)
+                throw new Exception();
+                
+
+
+                //.Contains(o => o.Username == viewModel.Username && o.Password == viewModel.Password);
+
+
+
+
         }
     }
 }
