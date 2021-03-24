@@ -41,16 +41,16 @@ namespace MemoriesProject.Models.Services
 
         internal void EditMemory(MemoryEditVM viewModel, int id)
         {
-            
-            //if (viewModel.ImageToUpload != null)
-            //{
-            //    var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
-            //    using (var fileStream = new FileStream(filePath, FileMode.Create))
-            //    {
-            //        viewModel.ImageToUpload.CopyTo(fileStream);
-            //    }
 
-            //}
+            if (viewModel.ImageToUpload != null)
+            {
+                string filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    viewModel.ImageToUpload.CopyTo(fileStream);
+                }
+
+            }
 
             var memoryToUpdate = context.Memories
                 .Find(id);
@@ -60,8 +60,8 @@ namespace MemoriesProject.Models.Services
             memoryToUpdate.MemoryTitle = viewModel.MemoryTitle;
             memoryToUpdate.WhenInWords = viewModel.WhenInWords;
             memoryToUpdate.Description = viewModel.Description;
-            //memoryToUpdate.ImagePath = viewModel.ImageToUpload?.FileName;
-            //memoryToUpdate.HasImage = viewModel.ImageToUpload?.FileName.Length > 0;
+            memoryToUpdate.ImagePath = viewModel.ImageToUpload == null ? memoryToUpdate.ImagePath : viewModel.ImageToUpload.FileName;
+            memoryToUpdate.HasImage = viewModel.ImageToUpload?.FileName.Length > 0;
 
             context.SaveChanges();
         }
@@ -91,7 +91,8 @@ namespace MemoriesProject.Models.Services
         {
             if (viewModel.ImageToUpload != null)
             {
-                var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
+                //string filePath = "";
+                string filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ImageToUpload.FileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {

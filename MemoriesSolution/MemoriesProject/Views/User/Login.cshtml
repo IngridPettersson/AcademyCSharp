@@ -1,20 +1,45 @@
 ﻿@model UserLoginVM
 
-@{ 
+@{
     ViewBag.Title = "Logga in";
-    ViewBag.Heading = "Logga in";
+    ViewBag.Heading = "Logga in eller skapa konto";
 }
+<div class="row g-3">
+    <div class="col-6">
+        <form method="post">
+            <h6>Logga in</h6>
+            <label asp-for="@Model.Username"></label>
+            <input asp-for="@Model.Username" />
+            <span asp-validation-for="@Model.Username"></span>
 
-<form method="post">
-    <label asp-for="@Model.Username"></label>
-    <input asp-for="@Model.Username" />
-    <span asp-validation-for="@Model.Username"></span>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
 
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-
-    <div class="col-auto">
-        <button class="btn" type="submit" name="name">Logga in</button>
+            <div class="col-auto">
+                <button class="btn" type="submit" name="name">Logga in</button>
+            </div>
+        </form>
     </div>
-</form>
+
+    <div class="col-6">
+        <form method="post">
+            <h6>Skapa konto</h6>
+            <label asp-for="@Model.UsernameChoice"></label>
+            <input asp-for="@Model.UsernameChoice" />
+            <span asp-validation-for="@Model.UsernameChoice"></span>
+
+            <label asp-for="PasswordChoice"></label>
+            <input asp-for="PasswordChoice" />
+            <span asp-validation-for="PasswordChoice"></span>
+
+            <label asp-for="PasswordChoiceRepeat"></label>
+            <input asp-for="PasswordChoiceRepeat" />
+            <span asp-validation-for="PasswordChoiceRepeat"></span>
+
+            <div class="col-auto">
+                <button class="btn" type="submit" name="name">Skapa konto</button>
+            </div>
+        </form>
+    </div>
+</div>

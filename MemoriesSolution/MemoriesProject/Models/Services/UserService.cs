@@ -16,8 +16,9 @@ namespace MemoriesProject.Models.Services
             this.context = context;
         }
 
-        internal Task AddUserLogin(UserLoginVM loginVM)
+        internal Task CreateUser(UserLoginVM loginVM)
         {
+
             context.Users
                 .Add(new User
                 {
