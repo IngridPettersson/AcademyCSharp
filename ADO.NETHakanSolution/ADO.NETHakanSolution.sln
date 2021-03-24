@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO.NETHakan", "ADO.NETHakan\ADO.NETHakan.csproj", "{263F425B-A49E-4364-860E-F658302098EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "usingDemo", "usingDemo\usingDemo.csproj", "{0359F854-61F0-4EAE-B2D0-7CFDB53BDCBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitConversionCodeAlong", "ImplicitConversionCodeAlong\ImplicitConversionCodeAlong.csproj", "{7BADF6C1-B025-49F9-A2DC-00E7B349347A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{263F425B-A49E-4364-860E-F658302098EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{263F425B-A49E-4364-860E-F658302098EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{263F425B-A49E-4364-860E-F658302098EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0359F854-61F0-4EAE-B2D0-7CFDB53BDCBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0359F854-61F0-4EAE-B2D0-7CFDB53BDCBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0359F854-61F0-4EAE-B2D0-7CFDB53BDCBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0359F854-61F0-4EAE-B2D0-7CFDB53BDCBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BADF6C1-B025-49F9-A2DC-00E7B349347A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BADF6C1-B025-49F9-A2DC-00E7B349347A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BADF6C1-B025-49F9-A2DC-00E7B349347A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BADF6C1-B025-49F9-A2DC-00E7B349347A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
