@@ -12,7 +12,8 @@ namespace IdentityDemo.Models
         public MyIdentityContext(DbContextOptions<MyIdentityContext> options)
             : base(options)
         {
-            var result = Database.EnsureCreated();
+            //Man måste skapa en tom databas för att detta ska gå igenom
+            Database.EnsureCreated();
         }
     }
 }

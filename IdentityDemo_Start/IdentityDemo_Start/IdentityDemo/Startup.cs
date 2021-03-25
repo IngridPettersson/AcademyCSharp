@@ -37,6 +37,7 @@ namespace IdentityDemo
             services.AddIdentity<MyIdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<MyIdentityContext>()
                 .AddDefaultTokenProviders();
+
             services.ConfigureApplicationCookie(
             o => o.LoginPath = "/LogIn");
 
