@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using IdentityDemo.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace IdentityDemo
 {
@@ -27,11 +28,20 @@ namespace IdentityDemo
         public void ConfigureServices(IServiceCollection services)
         {
             var connString = configuration.GetConnectionString("DefaultConnection");
-            
+
             services.AddControllersWithViews();
             services.AddTransient<AccountService>();
 
-            //TODO: Lägga till cookie-baserad authentication - görs automatiskt om man konfig appen att använda Identity
+            services.AddDbContext<MyIdentityContext>(o => o.UseSqlServer(connString));
+
+            services.AddIdentity<MyIdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<MyIdentityContext>()
+                .AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(
+            o => o.LoginPath = "/LogIn");
+
+            //TODO: Lägga till cookie-baserad authentication - görs automatiskt om man konfig appen att använda Identity.
+            //Slide 3 i Identity
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -42,8 +52,13 @@ namespace IdentityDemo
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+            //TODO: Konfig appen till att stödja authentication och authorization
+            //Slide 4 Identity
         }
     }
 }

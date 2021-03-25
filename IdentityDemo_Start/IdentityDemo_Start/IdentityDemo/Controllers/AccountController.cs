@@ -6,9 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using IdentityDemo.Models;
 using IdentityDemo.Models.ViewModels;
+using System.Net;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace IdentityDemo.Controllers
 {
+    //TODO: Authorize-filter i MembersController - alltså skapa en ny controller. Ngt görs automatiskt med Identity(?). Kan 
+    //lägga på den på Action i ursprungliga controllern om det handlar om enstaka inloggningsskyddad sida.
+    //Slide 5 Identity
     public class AccountController : Controller
     {
         AccountService accountService;
@@ -20,6 +27,7 @@ namespace IdentityDemo.Controllers
 
         [HttpGet]
         [Route("members")]
+        [Authorize]
         public IActionResult Members()
         {
             return View(new AccountMembersVM { Username = User.Identity.Name });
@@ -35,13 +43,13 @@ namespace IdentityDemo.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(AccountRegisterVM viewModel)
+        public async Task<IActionResult> RegisterAsync(AccountRegisterVM viewModel)
         {
             if (!ModelState.IsValid)
                 return View(viewModel);
 
             // Try to register user
-            var success = accountService.TryRegister(viewModel);
+            var success = await accountService.TryRegisterAsync(viewModel);
             if (!success)
             {
                 // Show error
@@ -62,13 +70,13 @@ namespace IdentityDemo.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(AccountLoginVM viewModel)
+        public async Task<IActionResult> LoginAsync(AccountLoginVM viewModel)
         {
             if (!ModelState.IsValid)
                 return View(viewModel);
 
             // Check if credentials is valid (and set auth cookie)
-            var success = accountService.TryLoginAsync(viewModel);
+            var success = await accountService.TryLoginAsync(viewModel);
             if (!success)
             {
                 // Show error
@@ -82,5 +90,16 @@ namespace IdentityDemo.Controllers
             else
                 return Redirect(viewModel.ReturnUrl);
         }
+
+
+        [Route("logout")]
+        public async Task<IActionResult> LogoutAsync()
+        {
+
+            await accountService.SignOutAsync();
+
+            return RedirectToAction(nameof(Login));
+        }
+
     }
 }
