@@ -10,6 +10,7 @@ namespace MemoriesProject.Models.Services
 {
     public class UserService
     {
+        MyContext context;
 
         UserManager<MyIdentityUser> userManager;
         SignInManager<MyIdentityUser> signInManager;
@@ -18,22 +19,18 @@ namespace MemoriesProject.Models.Services
         public UserService(
         UserManager<MyIdentityUser> userManager,
         SignInManager<MyIdentityUser> signInManager,
-        RoleManager<IdentityRole> roleManager)
+        RoleManager<IdentityRole> roleManager,
+        MyContext context)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
-        }
-        MyContext context;
-
-        public UserService(MyContext context)
-        {
             this.context = context;
+
         }
 
         internal Task CreateUser(UserCreateAccountVM viewModel)
         {
-
             context.Users
                 .AddAsync(new User
                 {

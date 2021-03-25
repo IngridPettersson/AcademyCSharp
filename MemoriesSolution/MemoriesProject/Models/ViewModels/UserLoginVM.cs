@@ -10,10 +10,13 @@ namespace MemoriesProject.Models.ViewModels
     {
         [Display(Name = "Användarnamn")]
         [Required(ErrorMessage = "Du måste fylla i ett användarnamn för att logga in")]
-        
         public string Username { get; set; }
+
         [Display(Name = "Lösenord")]
         [Required(ErrorMessage = "Du måste fylla i ett lösenord för att logga in")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

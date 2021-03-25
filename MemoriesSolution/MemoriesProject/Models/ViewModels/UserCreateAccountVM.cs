@@ -14,10 +14,15 @@ namespace MemoriesProject.Models.ViewModels
 
         [Display(Name = "Välj ett lösenord")]
         [Required(ErrorMessage = "Du måste ange ett lösenord för att skapa ett konto")]
+        [DataType(DataType.Password)]
+
         public string PasswordChoice { get; set; }
 
         [Display(Name = "Upprepa lösenord")]
         [Required(ErrorMessage = "Du måste upprepa lösenordet för att skapa ett konto")]
+        [Compare(nameof(UserCreateAccountVM.PasswordChoice))]
+        [DataType(DataType.Password)]
+
         public string PasswordChoiceRepeat { get; set; }
     }
 }
