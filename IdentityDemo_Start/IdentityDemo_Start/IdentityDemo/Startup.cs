@@ -41,8 +41,6 @@ namespace IdentityDemo
             services.ConfigureApplicationCookie(
             o => o.LoginPath = "/LogIn");
 
-            //TODO: Lägga till cookie-baserad authentication - görs automatiskt om man konfig appen att använda Identity.
-            //Slide 3 i Identity
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -25,7 +25,7 @@ namespace IdentityDemo.Models
         public async Task<bool> TryRegisterAsync(AccountRegisterVM viewModel)
         {
             // Todo: Try to create a new user
-            //Finns UserManager, RoleManager, SignIn manager
+            //Finns UserManager, RoleManager, SignInManager
             //Identity vill att vi anv deras klasser (ovan) som i sin tur jobbar mot context
 
             var result = await userManager.CreateAsync(

@@ -1,8 +1,10 @@
+using MemoriesProject.Models;
 using MemoriesProject.Models.Entities;
 using MemoriesProject.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +27,19 @@ namespace MemoriesProject
 
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MemoryDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<MyContext>(o => o.UseSqlServer(connString));
+
+
+            services.AddIdentity<MyIdentityUser, IdentityRole>(o =>
+            {
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 3;
+            }
+                )
+                .AddEntityFrameworkStores<MyIdentityContext>()
+                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(
+            o => o.LoginPath = "/User/Login");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,6 @@
 ﻿using MemoriesProject.Models.Entities;
 using MemoriesProject.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,20 @@ namespace MemoriesProject.Models.Services
 {
     public class UserService
     {
+
+        UserManager<MyIdentityUser> userManager;
+        SignInManager<MyIdentityUser> signInManager;
+        RoleManager<IdentityRole> roleManager;
+
+        public UserService(
+        UserManager<MyIdentityUser> userManager,
+        SignInManager<MyIdentityUser> signInManager,
+        RoleManager<IdentityRole> roleManager)
+        {
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+            this.roleManager = roleManager;
+        }
         MyContext context;
 
         public UserService(MyContext context)

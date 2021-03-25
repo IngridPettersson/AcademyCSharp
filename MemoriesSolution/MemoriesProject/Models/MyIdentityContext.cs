@@ -15,6 +15,6 @@ namespace MemoriesProject.Models
             //Man måste skapa en tom databas för att detta ska gå igenom
             Database.EnsureCreated();
         }
-    {
+
     }
 }
